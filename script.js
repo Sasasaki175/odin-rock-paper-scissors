@@ -1,5 +1,3 @@
-console.log("Hello World");
-
 function getComputerChoice() {
   const randomNumber = Math.random();
 
@@ -12,8 +10,6 @@ function getComputerChoice() {
   }
 }
 
-console.log(getComputerChoice());
-
 function getHumanChoice() {
 
   let userInput = prompt('"rock" "paper" or "scissors"?');
@@ -23,4 +19,9 @@ function getHumanChoice() {
   }
 }
 
+let humanScore = 0;
+let computerScore = 0;
+
+console.log("Hello World");
+console.log(getComputerChoice());
 console.log(getHumanChoice());
