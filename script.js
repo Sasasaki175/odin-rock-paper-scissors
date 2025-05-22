@@ -23,11 +23,11 @@ function playRound(getHumanChoice, computerChoice) {
   switch(getHumanChoice) {
     case "rock":
       if(computerChoice === "scissors") {
-        return "You win! Rock beats Scissors";
         humanScore++;
+        return "You win! Rock beats Scissors";
       } else if(computerChoice === "paper") {
-        return "You lose! Paper beats Rock";
         computerScore++;
+        return "You lose! Paper beats Rock";
       } else {
         return "It's a tie";
       }
@@ -35,11 +35,11 @@ function playRound(getHumanChoice, computerChoice) {
     
     case "paper":
       if(computerChoice === "rock") {
-        return "You win! Paper beats Rock";
         humanScore++;
+        return "You win! Paper beats Rock";
       } else if(computerChoice === "scissors") {
-        return "You lose! Scissors beats Paper";
         computerScore++;
+        return "You lose! Scissors beats Paper";
       } else {
         return "It's a tie";
       }
@@ -47,11 +47,11 @@ function playRound(getHumanChoice, computerChoice) {
     
     case "scissors":
       if(computerChoice === "paper") {
-        return "You win! Scissors beats paper";
         humanScore++;
+        return "You win! Scissors beats paper";
       } else if(computerChoice === "rock") {
-        return "You lose! Rock beats Scissors";
         computerScore++;
+        return "You lose! Rock beats Scissors";
       } else {
         return "It's a tie";
       }
