@@ -13,3 +13,14 @@ function getComputerChoice() {
 }
 
 console.log(getComputerChoice());
+
+function getHumanChoice() {
+
+  let userInput = prompt('"rock" "paper" or "scissors"?');
+
+  if (userInput.toLowerCase() === "rock" || userInput.toLowerCase() === "paper" || userInput.toLowerCase() === "scissors") {
+    return userInput.toLowerCase();
+  }
+}
+
+console.log(getHumanChoice());
