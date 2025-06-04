@@ -10,15 +10,6 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-
-  let userInput = prompt('"rock" "paper" or "scissors"?');
-
-  if (userInput.toLowerCase() === "rock" || userInput.toLowerCase() === "paper" || userInput.toLowerCase() === "scissors") {
-    return userInput.toLowerCase();
-  }
-}
-
 function playGame() {
   function playRound(getHumanChoice, computerChoice) {
     switch(getHumanChoice) {
@@ -66,15 +57,60 @@ function playGame() {
   let humanScore = 0;
   let computerScore = 0;
 
+  let rock = document.querySelector("#rock");
+  let paper = document.querySelector("#paper");
+  let scissors = document.querySelector("#scissors");
 
-  for(let i = 0; i < 5; i++){
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-    console.log(playRound(humanSelection, computerSelection));
+  let roundResult = document.querySelector("#round-result");
+  let humanScoreLine = document.querySelector("#human-score");
+  let computerScoreLine = document.querySelector("#computer-score");
+  let gameResult = document.querySelector("#game-result");
+
+  function updateRoundScore() {
+    humanScoreLine.textContent = `Human score: ${humanScore}`;
+    computerScoreLine.textContent = `Computer score: ${computerScore}`;
+    updateGameResult();
   }
   
-  console.log("Human score: " + humanScore);
-  console.log("Computer score: " + computerScore);
+  function updateGameResult() {
+    if (humanScore >= 5) {
+      gameResult.textContent = "Congratulations! You have Won the Game!";
+      gameOver = true;
+    } 
+
+    if (computerScore >= 5) {
+      gameResult.textContent = "Game Over You've Lost...";
+      gameOver = true;
+    }
+  }
+ 
+  let gameOver = false;
+
+  roundResult.textContent = "";
+  humanScoreLine.textContent = "";
+  computerScoreLine.textContent = "";
+  gameResult.textContent = "";
+  
+  rock.addEventListener("click", () => {
+    if (gameOver === false) {
+      roundResult.textContent = playRound("rock", getComputerChoice());
+      updateRoundScore();
+    }   
+  });
+
+  paper.addEventListener("click", () => {
+    if (gameOver === false) {
+      roundResult.textContent = playRound("paper", getComputerChoice());
+      updateRoundScore();
+    }   
+  });
+
+  scissors.addEventListener("click", () => {
+    if (gameOver === false) {
+      roundResult.textContent = playRound("scissors", getComputerChoice());
+      updateRoundScore();
+    }   
+  });
 }
 
 playGame();
